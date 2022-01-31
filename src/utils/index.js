@@ -10,4 +10,5 @@ class Movie {
     }
 };
 
+
 module.exports = { Movie, movieArr }

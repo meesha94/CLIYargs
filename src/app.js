@@ -1,11 +1,11 @@
 const yargs = require("yargs")
 
 const { Movie, movieArr } = require("./utils");
-
+const { Makeup, makeupArr } = require("./utils/makeupindex")
 
 
 const app = (args) => {
-    if(args.add) {
+    if (args.add) {
         const movie = new Movie(args.movie, args.actor);
         movie.add()
         console.log(movieArr);
@@ -20,4 +20,22 @@ const app = (args) => {
     }
 };
 
-app(yargs.argv);
+//app(yargs.argv);
+
+const app1 = (args) => {
+    if (args.add) {
+        const makeup = new Makeup(args.brand, args.product);
+        makeup.add();
+        console.log(makeupArr);
+    } else if (args.addMany) {
+        const makeup1 = new Makeup(args.brand, args.product);
+        const makeup2 = new Makeup(args.brand, args.product);
+        makeup1.add();
+        makeup2.add();
+        console.log(makeupArr);
+    } else {
+        console.log("incorrect command")
+    }
+};
+
+app1(yargs.argv)
